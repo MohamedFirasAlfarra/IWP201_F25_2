@@ -1,0 +1,643 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+table,
+input,
+button,
+label,
+legend,
+p,
+li,
+a,
+h1,
+h2 {
+    font-family: 'Cairo', Tahoma, Arial, sans-serif;
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+    color: #1f4e79;
+    margin-bottom: 30px;
+    animation: fadeInDown 1s ease-out;
+}
+
+h2 {
+    font-size: 24px;
+    color: #1f4e79;
+    margin-bottom: 15px;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 0;
+    direction: rtl;
+    min-height: 100vh;
+}
+
+#wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 20px 30px;
+    background: rgba(255, 255, 255, 0.95);
+    min-height: 100vh;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+#nav {
+    background: linear-gradient(135deg, #1f4e79 0%, #2c5282 100%);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 15px 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 20px rgba(31, 78, 121, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+#nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 3s infinite;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.logo-text {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 8px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    position: relative;
+    animation: logoGlow 2s ease-in-out infinite alternate;
+}
+
+.logo-text::before {
+    content: 'LUXURY';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg, #c0c0c0 0%, #ffffff 50%, #c0c0c0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.3;
+    filter: blur(2px);
+    z-index: -1;
+}
+
+.logo-subtitle {
+    font-size: 12px;
+    color: #ffd700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: -5px;
+}
+
+.logo-decoration {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ffd700, transparent);
+    margin-top: 5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+#nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+#nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#nav a.exit {
+    color: #ffb3b3;
+    border: 2px solid #ffb3b3;
+}
+
+#nav a.exit:hover {
+    background: #ffb3b3;
+    color: #1f4e79;
+}
+
+.box {
+    border: none;
+    border-radius: 15px;
+    padding: 25px 30px;
+    margin: 20px 0;
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slideInUp 0.6s ease-out;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+th {
+    background: linear-gradient(135deg, #4472c4 0%, #5a8bd5 100%);
+    color: #fff;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    transition: background 0.3s ease;
+}
+
+tr:hover td {
+    background: #f0f7ff;
+}
+
+tr.details {
+    display: none;
+    background: linear-gradient(135deg, #fff8dc 0%, #ffefd5 100%);
+    animation: slideDown 0.4s ease-out;
+}
+
+tr.details.show {
+    display: table-row;
+}
+
+tr.details td {
+    background: linear-gradient(135deg, #fff8dc 0%, #ffefd5 100%);
+    text-align: right;
+    padding: 25px 30px;
+    font-size: 15px;
+    border-bottom: 2px solid #ffd700;
+}
+
+.specs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.specs-list li {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 12px 18px;
+    border-radius: 8px;
+    border-right: 4px solid #ffd700;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.specs-list li:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateX(-5px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.spec-label {
+    font-weight: 700;
+    color: #1f4e79;
+    margin-left: 8px;
+}
+
+.spec-value {
+    color: #333;
+    font-weight: 500;
+}
+
+.center {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    background: linear-gradient(135deg, #1e90d6 0%, #0077b6 100%);
+    color: #fff;
+    border: 0;
+    border-radius: 25px;
+    padding: 12px 35px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(30, 144, 214, 0.4);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(30, 144, 214, 0.6);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"] {
+    background: #fff;
+    color: #222;
+    border: 2px solid #1f4e79;
+    border-radius: 10px;
+    padding: 12px 15px;
+    width: 280px;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus {
+    border-color: #4472c4;
+    box-shadow: 0 0 15px rgba(68, 114, 196, 0.3);
+    outline: none;
+}
+
+.fieldset {
+    position: relative;
+    border-radius: 20px;
+    margin: 30px auto;
+    padding: 35px;
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    animation: slideInUp 0.6s ease-out;
+    overflow: hidden;
+    max-width: 800px;
+}
+
+.fieldset::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg,
+            #1f4e79,
+            #4472c4,
+            #667eea,
+            #764ba2,
+            #1f4e79,
+            #4472c4,
+            #667eea,
+            #764ba2);
+    background-size: 400% 400%;
+    border-radius: 22px;
+    z-index: -1;
+    animation: borderAnimation 8s ease infinite;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+legend {
+    font-weight: 700;
+    color: #1f4e79;
+    font-size: 22px;
+    padding: 0 20px;
+    background: linear-gradient(135deg, #4472c4 0%, #5a8bd5 100%);
+    color: white;
+    border-radius: 30px;
+    padding: 10px 25px;
+    box-shadow: 0 5px 15px rgba(68, 114, 196, 0.3);
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.close-btn {
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.close-btn:active {
+    transform: scale(0.95);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.field {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+label {
+    display: inline-block;
+    width: 320px;
+    font-weight: 600;
+    color: #333;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.error {
+    display: block;
+    color: #d32f2f;
+    font-size: 13px;
+    margin-top: 5px;
+    min-height: 20px;
+}
+
+#resultOverlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 99999;
+    animation: fadeIn 0.3s ease-out;
+}
+
+#resultBox {
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    width: 600px;
+    max-width: 90%;
+    margin: 8% auto;
+    padding: 30px 35px;
+    border-radius: 20px;
+    max-height: 80%;
+    overflow: auto;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+    animation: slideInDown 0.4s ease-out;
+}
+
+.total td {
+    font-weight: 700;
+    background: #e8f4fd;
+}
+
+#footer {
+    text-align: center;
+    color: #555;
+    border-top: 2px solid #ccd;
+    margin-top: 40px;
+    padding: 20px;
+    font-size: 15px;
+    background: linear-gradient(145deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 10px;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        max-height: 200px;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes logoGlow {
+    0% {
+        filter: brightness(1);
+        text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    }
+
+    100% {
+        filter: brightness(1.2);
+        text-shadow: 0 0 50px rgba(255, 215, 0, 0.8), 0 0 80px rgba(255, 215, 0, 0.4);
+    }
+}
+
+@keyframes borderAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.car-card {
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    animation: slideInUp 0.6s ease-out;
+}
+
+.car-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.car-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.car-specs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.spec-item {
+    background: #f0f7ff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    border-right: 3px solid #4472c4;
+}
+
+.spec-label {
+    font-weight: 600;
+    color: #1f4e79;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.spec-value {
+    color: #333;
+}
+
+.price-tag {
+    background: linear-gradient(135deg, #4472c4 0%, #5a8bd5 100%);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 700;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.model-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1f4e79;
+    margin: 10px 0;
+}
